@@ -6,6 +6,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import './App.css';
 import UserSignUp from './Pages/SignUp/UserSignUp';
 import DefaultPage from './Pages/DefaultPage/DefaultPage';
+import UserBooking from './Pages/UserBooking/UserBooking';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/users/booking" element={<Home/>} />
           <Route path="/users/dashboard" element={<Dashboard/>} />
           <Route path="/user/signup" element={<UserSignUp/>} />
+          <Route path="/user/userbooking" element={<UserBooking/>}/>
 
         </Routes>
 

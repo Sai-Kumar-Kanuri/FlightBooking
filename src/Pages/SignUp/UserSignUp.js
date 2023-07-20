@@ -1,17 +1,46 @@
 // UserSignUp.js
 import React, { useState } from 'react';
 import './UserSignUp.css'; // Import the UserSignUp.css file for styles
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
 
 const UserSignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  let navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Perform user sign-up logic here
+  //   console.log('User Sign Up:', email, password, fullName, confirmPassword);
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform user sign-up logic here
-    console.log('User Sign Up:', email, password, fullName, phoneNumber);
+    try {
+      // Send login data to the backend
+      const response = await axios.post('https://devrev-assessment.onrender.com/api/user/signUp', {
+        name: fullName,
+        email: email,
+        password: password,
+        passwordConfirm: confirmPassword,
+
+      });
+
+      // console.log(response.data.token);
+      console.log(response)
+      if (response.status===201) {
+        // If signup is successful, navigate to the login page
+        navigate('/user/login');
+      }
+
+      // ... (remaining code)
+    } catch (error) {
+      // Handle login error
+      console.error('Login error:', error.response.data);
+    }
   };
 
   return (
@@ -49,12 +78,12 @@ const UserSignUp = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number:</label>
+          <label htmlFor="phoneNumber">Confirm Password:</label>
           <input
-            type="tel"
+            type="password"
             id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </div>

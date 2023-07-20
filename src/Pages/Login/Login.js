@@ -31,8 +31,9 @@ const Login = () => {
       console.log(response.data.token);
 
       if(response.data.token){
-        navigate('/user/booking');
+        navigate('/user/userbooking');
       }
+      localStorage.setItem("authorization", JSON.stringify(response.data.token));
 
       // ... (remaining code)
     } catch (error) {

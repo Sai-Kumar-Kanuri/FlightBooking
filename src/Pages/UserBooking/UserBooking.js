@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import FlightCard from '../../components/FlightCard/FlightCard';
+import "./UserBooking.css";
+import axios from 'axios';
 
-const AirportApp = () => {
+const AirportApp = (props) => {
   const [sourceCity, setSourceCity] = useState('');
   const [destinationCity, setDestinationCity] = useState('');
   const [travelDate, setTravelDate] = useState('');

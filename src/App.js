@@ -7,6 +7,8 @@ import './App.css';
 import UserSignUp from './Pages/SignUp/UserSignUp';
 import DefaultPage from './Pages/DefaultPage/DefaultPage';
 import UserBooking from './Pages/UserBooking/UserBooking';
+import AdminLogin from './Pages/AdminLogin/AdminLogin';
+import AdminHome from './Pages/AdminHome/AdminHome';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/users/dashboard" element={<Dashboard/>} />
           <Route path="/user/signup" element={<UserSignUp/>} />
           <Route path="/user/userbooking" element={<UserBooking/>}/>
+          <Route path="/admin/adminlogin" element={<AdminLogin/>}/>
+          <Route path="/admin/adminhome" element={<AdminHome/>}/>
         </Routes>
 
       </div>

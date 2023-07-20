@@ -1,11 +1,14 @@
 // Login.js
 import React, { useState } from 'react';
 import './Login.css';
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  let navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -25,6 +28,7 @@ const Login = () => {
     // Implement the logic to navigate to the sign-up page here
     // For example, you can use React Router to handle navigation
     console.log('Navigate to Sign Up page');
+    navigate("/user/signup");
   };
 
   return (

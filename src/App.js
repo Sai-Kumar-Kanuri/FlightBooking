@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
+import UserSignUp from './components/SignUp/UserSignUp';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <Route exact path="/" element={<Login/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/user/signup" element={<UserSignUp/>} />
+
         </Routes>
 
       </div>

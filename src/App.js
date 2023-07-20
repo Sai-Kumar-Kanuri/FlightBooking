@@ -1,16 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Home from './components/Home/Home';
-import Dashboard from './components/Dashboard/Dashboard';
+import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import './App.css';
-import UserSignUp from './components/SignUp/UserSignUp';
+import UserSignUp from './Pages/SignUp/UserSignUp';
+import DefaultPage from './Pages/DefaultPage/DefaultPage';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+        <Route path='/' element={<DefaultPage/>}/>
           <Route exact path="/user/login" element={<Login/>} />
           <Route path="/users/booking" element={<Home/>} />
           <Route path="/users/dashboard" element={<Dashboard/>} />

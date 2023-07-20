@@ -1,37 +1,48 @@
-// Dashboard.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BookingCard from './BookingCard';
-import './Dashboard.css'; // Import the Dashboard.css file for styles
+import './Dashboard.css';
+import axios from 'axios';
 
 const Dashboard = () => {
-  // Dummy data for booked flights
-  const [bookedFlights, setBookedFlights] = useState([
-    {
-      id: 1,
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      departureDate: '2023-07-28',
-      passengers: 2,
-    },
-    {
-      id: 2,
-      departureCity: 'San Francisco',
-      arrivalCity: 'Chicago',
-      departureDate: '2023-08-10',
-      passengers: 1,
-    },
-    // Add more booked flights here...
-  ]);
+  const [bookedFlights, setBookedFlights] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userId = JSON.parse(localStorage.getItem("userId"));
+        const token = JSON.parse(localStorage.getItem("authorization"))
+        // ...
+
+        const response = await axios.get(
+          `https://devrev-assessment.onrender.com/api/book/getbookings/${userId}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        const data = response.data.bookings;
+
+        // console.log(data);
+        setBookedFlights(data);
+      } catch (error) {
+        // Handle errors
+        console.error('Error:', error.message); // Log the specific error message
+      }
+    };
+
+
+    fetchData(); // Call the function to fetch the data
+  }, []);
+
+  // console.log(bookedFlights);
 
   return (
     <div className="dashboard-container">
       <h2 className="dashboard-title">My Booked Flights</h2>
       <div className="booking-cards-container">
-        {bookedFlights.map((booking) => (
-          <BookingCard key={booking.id} booking={booking} />
-        ))}
+       {bookedFlights.map((booking)=>{return(<BookingCard booking={booking} />)})}
       </div>
-      <p className="dashboard-footer">© 2023 Flight Booking App. All rights reserved.</p>
     </div>
   );
 };

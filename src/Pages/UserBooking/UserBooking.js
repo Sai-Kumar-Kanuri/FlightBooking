@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FlightCard from '../../components/FlightCard/FlightCard';
 import "./UserBooking.css";
 import axios from 'axios';
+import Navbar from '../../components/FlightCard/Navbar/Navbar';
 // import { useNavigate } from 'react-router-dom';
 
 const AirportApp = () => {
@@ -64,38 +65,14 @@ const AirportApp = () => {
       // Handle errors that occurred during the POST request
       console.error('Error:', error);
     }
-
-
-
-
-    // Create an object with the form data
-    // const formData = {
-    //   sourceCity: sourceCity,
-    //   destinationCity: destinationCity,
-    //   travelDate: travelDate,
-    // };
-
-    // // Send the form data to the backend using a fetch or axios call
-    // fetch('YOUR_BACKEND_URL', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // Handle the response from the backend
-    //     setFlights(data.flights);
-    //   })
-    //   .catch((error) => {
-    //     // Handle any errors that occurred during the fetch
-    //     console.error('Error:', error);
-    //   });
   };
 
   return (
+    <div>
+      <Navbar/>
+    
     <div className="container">
+    
       <h2>Airport Application</h2>
       <form onSubmit={handleSubmit} className="form-section">
         <div>
@@ -134,6 +111,7 @@ const AirportApp = () => {
           <FlightCard key={index} flight={flight} />
         ))}
       </div>
+    </div>
     </div>
   );
 };

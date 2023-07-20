@@ -38,7 +38,7 @@ const FlightCard = ({ flight }) => {
     }
 
 
-    navigate('/users/dashboard');
+    navigate('/user/dashboard');
   }
   return (
     <div className="flight-card">

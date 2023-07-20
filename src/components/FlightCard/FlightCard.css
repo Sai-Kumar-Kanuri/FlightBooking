@@ -1,29 +1,59 @@
 .flight-card {
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 16px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .flight-info {
   flex: 1;
 }
 
+.flight-number,
+.flight-origin,
+.flight-destination,
+.flight-date,
+.flight-time,
+.flight-seats,
+.flight-fare {
+  margin: 4px 0;
+  font-weight: bold;
+  color: #333;
+}
+
 .book-button {
-  background-color: #007bff;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .book-button:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
 }
 
+/* Additional Styling for Responsiveness */
 
+@media (max-width: 768px) {
+  .flight-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flight-info {
+    margin-bottom: 10px;
+  }
+
+  .book-button {
+    width: 100%;
+  }
+}

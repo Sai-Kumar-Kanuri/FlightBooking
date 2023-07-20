@@ -34,7 +34,7 @@ const Login = () => {
         navigate('/user/userbooking');
       }
       localStorage.setItem("authorization", JSON.stringify(response.data.token));
-
+      localStorage.setItem("userId",JSON.stringify(response.data.userId));
       // ... (remaining code)
     } catch (error) {
       // Handle login error

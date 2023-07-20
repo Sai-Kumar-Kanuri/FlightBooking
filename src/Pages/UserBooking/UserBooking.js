@@ -24,6 +24,9 @@ const AirportApp = () => {
 
   const handleTravelDateChange = (event) => {
     setTravelDate(event.target.value);
+    
+    // setTravelDate(formattedDate);
+    // console.log(travelDate);
   };
 
   // const token = localStorage.getItem('authorization');
@@ -36,10 +39,12 @@ const AirportApp = () => {
       // Send the form data to the backend using Axios
       const token = JSON.parse(localStorage.getItem('authorization'));
       console.log(token);
+      const dateComponents = travelDate.split('-');
+      const formattedDate = `${dateComponents[2]}-${dateComponents[1]}-${dateComponents[0]}`;
       const formData = {
         flightOrigin: sourceCity,
         flightDestination: destinationCity,
-        startDate: travelDate,
+        startDate: formattedDate,
       };
       const response = await axios.post('https://devrev-assessment.onrender.com/api/flight/getflightsByDate', formData, {
         headers: {

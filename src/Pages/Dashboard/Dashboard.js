@@ -22,6 +22,7 @@ const Dashboard = () => {
     },
     // Add more booked flights here...
   ]);
+  
 
   return (
     <div className="dashboard-container">

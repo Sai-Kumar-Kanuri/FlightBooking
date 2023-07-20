@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 
 const Login = () => {
@@ -15,21 +16,36 @@ const Login = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    console.log(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform login logic here (e.g., send data to the server, validate credentials)
-    console.log('Email:', email);
-    console.log('Password:', password);
+    try {
+      // Send login data to the backend
+      const response = await axios.post('https://devrev-assessment.onrender.com/api/user/login', {
+        email,
+        password,
+      });
+
+      console.log(response.data.token);
+
+      if(response.data.token){
+        navigate('/user/booking');
+      }
+
+      // ... (remaining code)
+    } catch (error) {
+      // Handle login error
+      console.error('Login error:', error.response.data);
+    }
   };
 
-  const handleSignUp = () => {
-    // Implement the logic to navigate to the sign-up page here
-    // For example, you can use React Router to handle navigation
+  const handleSignUp = async () => {
     console.log('Navigate to Sign Up page');
     navigate("/user/signup");
   };
+
 
   return (
     <div className="login-container">

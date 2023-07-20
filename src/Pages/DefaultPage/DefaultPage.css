@@ -1,0 +1,83 @@
+/* homepage.css */
+
+/* Styles for the homepage content */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  /* Styles for the card container */
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  /* Styles for the individual cards */
+  .card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    background-color: #fff;
+    text-align: center;
+    margin: 10px; /* Add some margin between the cards */
+
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .card p {
+    margin-bottom: 16px;
+    color: #666;
+  }
+  
+  .card a {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+  }
+  
+  .card a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Colors for the cards */
+  .card:nth-child(1) {
+    background-color: #f7c6c5;
+  }
+  
+  .card:nth-child(2) {
+    background-color: #f5dbcb;
+  }
+  
+  .card:nth-child(3) {
+    background-color: #d6e5fa;
+  }
+  

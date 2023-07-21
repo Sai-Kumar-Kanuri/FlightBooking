@@ -3,11 +3,21 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Loading from '../../components/Loading/Loading';
 
+
+// const Loading = () => {
+//   return (
+//     <div className="loading-container">
+//       <div className="loading-spinner"></div>
+//     </div>
+//   );
+// };
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   let navigate = useNavigate();
   const handleEmailChange = (e) => {
@@ -23,18 +33,21 @@ const Login = () => {
     e.preventDefault();
     try {
       // Send login data to the backend
+      setLoading(true);
       const response = await axios.post('https://devrev-assessment.onrender.com/api/user/login', {
         email,
         password,
       });
 
+      setLoading(false);
       console.log(response.data.token);
 
-      if(response.data.token){
+
+      if (response.data.token) {
         navigate('/user/userbooking');
       }
       localStorage.setItem("authorization", JSON.stringify(response.data.token));
-      localStorage.setItem("userId",JSON.stringify(response.data.userId));
+      localStorage.setItem("userId", JSON.stringify(response.data.userId));
       // ... (remaining code)
     } catch (error) {
       // Handle login error
@@ -50,6 +63,8 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      {loading && <Loading />}
+
       <h2 className="login-title">Login to Flight Booking</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -72,8 +87,10 @@ const Login = () => {
             required
           />
         </div>
-        <button className="login-button" type="submit">
-          Login
+
+
+        <button className="login-button" type="submit" disabled={loading}>
+        {loading ? 'Loading..' : 'Login'}
         </button>
       </form>
       <p className="signup-link">

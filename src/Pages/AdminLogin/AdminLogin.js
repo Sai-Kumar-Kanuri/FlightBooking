@@ -36,7 +36,7 @@ const AdminLogin = () => {
       else if(response.data.token && response.data.role!=='admin'){
         alert("You are not an admin")
       }
-    //   localStorage.setItem("authorization", JSON.stringify(response.data.token));
+      localStorage.setItem("authorization", JSON.stringify(response.data.token));
 
       // ... (remaining code)
     } catch (error) {

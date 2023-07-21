@@ -4,8 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+
 
 const FlightCard = ({ flight }) => {
+
+  
 
   let navigate = useNavigate();
   const handleBookFlight = async () => {
@@ -52,7 +58,17 @@ const FlightCard = ({ flight }) => {
         <p className="flight-time">Arrival Time: {flight.flightEndTime}</p>
         <p className="flight-seats">No. of Seats: {flight.noofseats}</p>
         <p className="flight-fare">Fare: ₹{flight.flightFare}</p>
+        <p className="flight-number">Flight Number: {flight._id}</p>
+        <p className="flight-origin">Source: {flight.flightOrigin}</p>
+        <p className="flight-destination">Destination: {flight.flightDestination}</p>
+        <p className="flight-date">Departure Date: {flight.flightStartDate}</p>
+        <p className="flight-time">Departure Time: {flight.flightStartTime}</p>
+        <p className="flight-date">Arrival Date: {flight.flightEndDate}</p>
+        <p className="flight-time">Arrival Time: {flight.flightEndTime}</p>
+        <p className="flight-seats">No. of Seats: {flight.noofseats}</p>
+        <p className="flight-fare">Fare: ₹{flight.flightFare}</p>
       </div>
+      <button className="book-button" onClick={handleBookFlight}>Book  ₹{flight.flightFare}</button>
       <button className="book-button" onClick={handleBookFlight}>Book  ₹{flight.flightFare}</button>
     </div>
   );

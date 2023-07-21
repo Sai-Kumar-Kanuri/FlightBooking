@@ -12,7 +12,7 @@ const DefaultPage = () => {
                 <div className="card">
                     <h3>Admin Login</h3>
                     <p>If you are an administrator or a staff member managing the flight bookings.</p>
-                    <Link to="/admin/login">Go to Admin Login</Link>
+                    <Link to="/admin/adminlogin">Go to Admin Login</Link>
                 </div>
 
                 <div className="card">

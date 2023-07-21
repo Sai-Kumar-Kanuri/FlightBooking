@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import FlightCard from './../../components/FlightCard/FlightCard';
+// import FlightCard from './../../components/FlightCard/FlightCard';
+import AdminFlightCard from "../../components/AdminFlightCard/AdminFlightCard"
 import axios from 'axios';
 import './AdminHome.css';
 import FlightFormModal from '../FlightFormModal/FlightFormModal';
@@ -73,9 +74,9 @@ const AllFlightsPage = () => {
       console.error('Error creating flight:', error);
     }
   };
-  const handleFilterChange = (e) => {
-    setSeatsFilter(e.target.value);
-  };
+  // const handleFilterChange = (e) => {
+  //   setSeatsFilter(e.target.value);
+  // };
   
 
 
@@ -97,7 +98,7 @@ const AllFlightsPage = () => {
         <div>
 
         {flights.map((flight, index) => (
-            <FlightCard key={index} flight={flight} onDelete={() => handleDeleteFlight(flight._id)} />
+            <AdminFlightCard key={index} flight={flight} onDelete={() => handleDeleteFlight(flight._id)} />
           ))}
         </div>
         

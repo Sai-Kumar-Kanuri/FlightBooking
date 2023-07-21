@@ -7,6 +7,8 @@ import './App.css';
 import UserSignUp from './Pages/SignUp/UserSignUp';
 import DefaultPage from './Pages/DefaultPage/DefaultPage';
 import UserBooking from './Pages/UserBooking/UserBooking';
+import AdminLogin from './Pages/AdminLogin/AdminLogin';
+import AdminHome from './Pages/AdminHome/AdminHome'
 
 
 function App() {

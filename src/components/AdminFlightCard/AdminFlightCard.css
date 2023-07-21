@@ -1,0 +1,39 @@
+/* FlightCard.css */
+.flight-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-info {
+    margin-bottom: 10px;
+  }
+  
+  .flight-info p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .flight-info p:first-child {
+    font-weight: bold;
+  }
+  
+  .book-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-end;
+  }
+  
+  .book-button:hover {
+    background-color: #0056b3;
+  }
+  

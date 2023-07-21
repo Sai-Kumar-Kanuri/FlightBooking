@@ -1,38 +1,59 @@
-/* FlightCard.css */
 .flight-card {
-  display: flex;
-  flex-direction: column;
-  background-color: #f0f0f0;
-  padding: 10px;
-  margin: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .flight-info {
-  margin-bottom: 10px;
+  flex: 1;
 }
 
-.flight-info p {
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-.flight-info p:first-child {
+.flight-number,
+.flight-origin,
+.flight-destination,
+.flight-date,
+.flight-time,
+.flight-seats,
+.flight-fare {
+  margin: 4px 0;
   font-weight: bold;
+  color: #333;
 }
 
 .book-button {
-  background-color: #007bff;
+  background-color: #4caf50;
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  align-self: flex-end;
+  transition: background-color 0.3s ease;
 }
 
 .book-button:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
+}
+
+/* Additional Styling for Responsiveness */
+
+@media (max-width: 768px) {
+  .flight-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flight-info {
+    margin-bottom: 10px;
+  }
+
+  .book-button {
+    width: 100%;
+  }
 }

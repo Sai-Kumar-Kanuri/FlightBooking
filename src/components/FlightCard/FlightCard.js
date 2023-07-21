@@ -11,39 +11,7 @@ import axios from 'axios';
 
 const FlightCard = ({ flight }) => {
 
-  let navigate = useNavigate();
-  const handleBookFlight = async () => {
-
-    try {
-      // Data to be sent in the POST request
-
-      const userId = JSON.parse(localStorage.getItem("userId"));
-      const token = JSON.parse(localStorage.getItem('authorization'));
-      const dataToSend = {
-        UserId: userId,
-        FlightId: flight._id,
-      };
-
-      console.log(dataToSend);
-
-      // POST request using Axios
-      const response = await axios.post('https://devrev-assessment.onrender.com/api/book/bookflight', dataToSend, {
-        headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      // Handle the response from the server
-      console.log('Response:', response.data);
-    } catch (error) {
-      // Handle errors that occurred during the POST request
-      console.error('Error:', error);
-    }
-
-
-    navigate('/user/dashboard');
-  }
+  
 
   let navigate = useNavigate();
   const handleBookFlight = async () => {

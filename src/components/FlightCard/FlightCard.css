@@ -2,11 +2,13 @@
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 8px;
+  border-radius: 8px;
   padding: 16px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,11 +28,26 @@
   color: #333;
 }
 
+.flight-number,
+.flight-origin,
+.flight-destination,
+.flight-date,
+.flight-time,
+.flight-seats,
+.flight-fare {
+  margin: 4px 0;
+  font-weight: bold;
+  color: #333;
+}
+
 .book-button {
+  background-color: #4caf50;
   background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -57,3 +74,7 @@
     width: 100%;
   }
 }
+
+  .book-button {
+    width: 100%;
+  }

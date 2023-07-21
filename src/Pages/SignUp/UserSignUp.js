@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import './UserSignUp.css'; // Import the UserSignUp.css file for styles
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Loading from '../../components/Loading/Loading';
+// import Loading from '../../Loading/Loading';
+
 
 
 const UserSignUp = () => {
@@ -10,6 +13,7 @@ const UserSignUp = () => {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
 
   // const handleSubmit = (e) => {
@@ -21,6 +25,7 @@ const UserSignUp = () => {
     e.preventDefault();
     try {
       // Send login data to the backend
+      setLoading(true);
       const response = await axios.post('https://devrev-assessment.onrender.com/api/user/signUp', {
         name: fullName,
         email: email,
@@ -30,8 +35,9 @@ const UserSignUp = () => {
       });
 
       // console.log(response.data.token);
+      setLoading(false);
       console.log(response)
-      if (response.status===201) {
+      if (response.status === 201) {
         // If signup is successful, navigate to the login page
         navigate('/user/login');
       }
@@ -45,6 +51,7 @@ const UserSignUp = () => {
 
   return (
     <div className="user-signup-container">
+      {loading && <Loading/>}
       <h2 className="user-signup-title">User Sign Up</h2>
       <form onSubmit={handleSubmit} className="user-signup-form">
         <div className="form-group">
